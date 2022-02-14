@@ -16,6 +16,9 @@
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('customers.index') }}"> Back</a>
                         </div>
+                        <div class="float-right">
+                            <a class="btn btn-danger" href="/generate-pdf/{{$customer->id}}"> PDF</a>
+                        </div>
                     </div>
 
                     <div class="card-body">

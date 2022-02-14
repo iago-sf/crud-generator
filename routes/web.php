@@ -26,6 +26,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('generate-pdf/{customer}', [App\Http\Controllers\PDFController::class, 'generateCustomerPDF']);
+
+Route::get('importExportView', [App\Http\Controllers\ImportExportController::class, 'importExportView']);
+Route::get('export', [App\Http\Controllers\ImportExportController::class, 'export'])->name('export');
+Route::post('import', [App\Http\Controllers\ImportExportController::class, 'import'])->name('import');
+
 Route::group(['middleware' => 'verified'], function () {
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
     Route::resource('users', App\Http\Controllers\UserController::class);
