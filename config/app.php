@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\BtnServiceProvider::class,
     ],
 
     /*
@@ -233,7 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade\PDF::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
+        'Btn' => App\MyService\Facades\Btn::class,
     ],
 
 ];

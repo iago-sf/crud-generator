@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\MyService\Facades\Btn;
+//use App\MyService\Btn;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +21,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('generate-pdf/{customer}', [App\Http\Controllers\PDFController::class, 'generateCustomerPDF']);
@@ -31,6 +28,14 @@ Route::get('generate-pdf/{customer}', [App\Http\Controllers\PDFController::class
 Route::get('importExportView', [App\Http\Controllers\ImportExportController::class, 'importExportView']);
 Route::get('export', [App\Http\Controllers\ImportExportController::class, 'export'])->name('export');
 Route::post('import', [App\Http\Controllers\ImportExportController::class, 'import'])->name('import');
+
+Route::get('myservice', function () {
+    return Btn::a('about', 'Acerca de...');
+});
+
+Route::get('styled', function () {
+    return Btn::styled_a('about', 'Acerca de...', ['btn', 'btn-danger']);
+});
 
 Route::group(['middleware' => 'verified'], function () {
     Route::resource('customers', App\Http\Controllers\CustomerController::class);
